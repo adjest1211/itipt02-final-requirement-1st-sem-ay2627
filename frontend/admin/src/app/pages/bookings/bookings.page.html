@@ -1,0 +1,177 @@
+
+<ion-header class="mainHeader">
+  <ion-toolbar>
+    <div class="toolbarContent">
+      <div class="brand">
+        <ion-button fill="clear" (click)="goDashboard()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+
+        <span>Customer Bookings</span>
+      </div>
+
+      <ion-button fill="clear" slot="end" (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Logout
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="page-heading">
+    <h1>Booking Management</h1>
+    <p>View and manage all customer reservations.</p>
+  </div>
+
+  <div class="bookingStats">
+
+    <div class="statCard">
+      <ion-icon name="time-outline"></ion-icon>
+      <h2>{{pendingCount}}</h2>
+      <p>Pending</p>
+    </div>
+
+    <div class="statCard">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <h2>{{confirmedCount}}</h2>
+      <p>Confirmed</p>
+    </div>
+
+    <div class="statCard">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      <h2>{{cancelledCount}}</h2>
+      <p>Cancelled</p>
+    </div>
+
+  </div>
+
+  <div class="filterSection">
+
+    <ion-searchbar
+      placeholder="Search customer, email, event or booking ID"
+      [value]="searchText"
+      (ionInput)="onSearch($event)">
+    </ion-searchbar>
+
+    <div class="statusFilters">
+      <button
+        *ngFor="let status of statuses"
+        [class.active]="selectedStatus === status"
+        (click)="selectStatus(status)">
+        {{status}}
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading bookings...
+  </div>
+
+  <div class="bookingList">
+
+    <div *ngFor="let booking of filteredBookings" class="bookingCard">
+
+      <div class="bookingHeader">
+
+        <div>
+          <span class="bookingId">
+            Booking #{{booking.bookID}}
+          </span>
+
+          <h2>{{booking.name}}</h2>
+          <p>{{booking.email}}</p>
+        </div>
+
+        <ion-badge [color]="getStatusColor(booking.bookStatus)">
+          {{booking.bookStatus}}
+        </ion-badge>
+
+      </div>
+
+      <div class="bookingInformation">
+
+        <div>
+          <span>Event</span>
+          <strong>{{booking.eventName}}</strong>
+        </div>
+
+        <div>
+          <span>Quantity</span>
+          <strong>{{booking.quantity}}</strong>
+        </div>
+
+        <div>
+          <span>Total Amount</span>
+          <strong>
+            {{booking.totalAmount | currency:'PHP':'₱'}}
+          </strong>
+        </div>
+
+        <div>
+          <span>Booking Date</span>
+          <strong>
+            {{booking.bookingDate | date:'mediumDate'}}
+          </strong>
+        </div>
+
+      </div>
+
+      <div class="bookingActions">
+
+        <ion-button
+          size="small"
+          fill="outline"
+          (click)="viewBooking(booking)">
+          <ion-icon name="eye-outline" slot="start"></ion-icon>
+          View
+        </ion-button>
+
+        <ion-button
+          *ngIf="booking.bookStatus === 'Pending'"
+          size="small"
+          color="success"
+          fill="outline"
+          (click)="changeStatus(booking, 'Confirmed')">
+          <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+          Confirm
+        </ion-button>
+
+        <ion-button
+          *ngIf="booking.bookStatus !== 'Cancelled'"
+          size="small"
+          color="warning"
+          fill="outline"
+          (click)="changeStatus(booking, 'Cancelled')">
+          <ion-icon name="close-outline" slot="start"></ion-icon>
+          Cancel
+        </ion-button>
+
+        <ion-button
+          size="small"
+          color="danger"
+          fill="outline"
+          (click)="deleteBooking(booking)">
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          Delete
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div
+    *ngIf="!loading && filteredBookings.length === 0"
+    class="emptyState">
+
+    <ion-icon name="ticket-outline"></ion-icon>
+    <h2>No Bookings Found</h2>
+    <p>There are currently no matching customer bookings.</p>
+
+  </div>
+
+</ion-content>

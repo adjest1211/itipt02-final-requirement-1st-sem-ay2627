@@ -1,8 +1,24 @@
+
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonCardContent, IonBadge, IonIcon, IonRefresher, IonRefresherContent } from '@ionic/angular';
+import { IonSpinner } from '@ionic/angular';
+
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonBadge,
+  IonIcon,
+  IonRefresher,
+  IonRefresherContent
+} from '@ionic/angular';
+
 import { ApiHandler } from '../../api-handler';
 import { addIcons } from 'ionicons';
 import { bookOutline, ticketOutline } from 'ionicons/icons';
@@ -11,9 +27,26 @@ import { bookOutline, ticketOutline } from 'ionicons/icons';
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.page.html',
   styleUrls: ['./my-bookings.page.scss'],
-  imports: [ IonButton, IonCard, IonCardContent, IonBadge, IonIcon, IonRefresher, IonRefresherContent, RouterLink, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonButton,
+    IonCard,
+    IonCardContent,
+    IonBadge,
+    IonIcon,
+    IonSpinner,
+    IonRefresher,
+    IonRefresherContent
+  ],
 })
 export class MyBookingsPage implements OnInit {
+
   private apiHandler = inject(ApiHandler);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
@@ -22,17 +55,22 @@ export class MyBookingsPage implements OnInit {
   loading = true;
 
   constructor() {
-    addIcons({bookOutline, ticketOutline});
+    addIcons({
+      bookOutline,
+      ticketOutline
+    });
   }
 
   ngOnInit() {
     this.loadBookings();
   }
 
-  loadBookings(){
+  loadBookings() {
+
     const currentUser = this.apiHandler.getUser();
 
-    if(!currentUser){
+    if (!currentUser || !currentUser.userID) {
+      this.loading = false;
       this.router.navigate(['/login']);
       return;
     }
@@ -41,39 +79,79 @@ export class MyBookingsPage implements OnInit {
     this.cdr.detectChanges();
 
     this.apiHandler.myBooking(currentUser.userID).subscribe({
-      next: (item: any) =>{
-        this.bookings = item;
+
+      next: (response: any) => {
+
+        console.log('My Bookings API:', response);
+
+        this.bookings = Array.isArray(response) ? response : [];
+
         this.loading = false;
         this.cdr.detectChanges();
+
       },
-      error: error => {
-        console.error(error);
+
+      error: (error) => {
+
+        console.error('Failed to load bookings:', error);
+
+        this.bookings = [];
         this.loading = false;
         this.cdr.detectChanges();
+
       }
+
     });
+
   }
 
-  refresh(event: any){
+  refresh(event: any) {
+
     const currentUser = this.apiHandler.getUser();
 
-    if(!currentUser){
+    if (!currentUser || !currentUser.userID) {
       event.target.complete();
+      this.router.navigate(['/login']);
       return;
     }
 
     this.apiHandler.myBooking(currentUser.userID).subscribe({
-      next: item => {
-        this.bookings = item;
+
+      next: (response: any) => {
+
+        console.log('Refreshed bookings:', response);
+
+        this.bookings = Array.isArray(response) ? response : [];
+
+        this.cdr.detectChanges();
         event.target.complete();
+
       },
-      error: () => event.target.complete()
+
+      error: (error) => {
+
+        console.error('Refresh error:', error);
+
+        event.target.complete();
+
+      }
+
     });
+
   }
 
-  getStatusColor(status: string): string{
-    if(status === 'Confirmed') return 'success';
-    if(status === 'Cancelled') return 'danger';
+  getStatusColor(status: string): string {
+
+    if (status === 'Confirmed') {
+      return 'success';
+    }
+
+    if (status === 'Cancelled') {
+      return 'danger';
+    }
+
     return 'warning';
+
   }
+
 }

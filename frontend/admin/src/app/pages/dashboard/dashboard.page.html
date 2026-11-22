@@ -1,0 +1,111 @@
+<ion-header class="mainHeader">
+  <ion-toolbar>
+    <div class="toolbarContent">
+      <div class="brand">
+        <div class="brandLogo">
+          <ion-icon name="ticket"></ion-icon>
+        </div>
+        <span>Eventify Admin</span>
+      </div>
+      <ion-button fill="clear" slot="end" (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Logout
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="dashboardHeading">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome to your event management dashboard.</p>
+    </div>
+
+    <ion-button routerLink="/events">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      Manage Events
+    </ion-button>
+  </div>
+
+  <div class="statsGrid">
+    <ion-card>
+      <ion-card-content>
+        <ion-icon name="calendar-outline"></ion-icon>
+        <h2>{{summary.totalEvents}}</h2>
+        <p>Total Events</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-icon name="people-outline"></ion-icon>
+        <h2>{{summary.totalUsers}}</h2>
+        <p>Total Customers</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-icon name="ticket-outline"></ion-icon>
+        <h2>{{summary.totalBookings }} </h2>
+        <p>Total Bookings</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-icon name="time-outline"></ion-icon>
+        <h2>{{summary.pendingBookings }} </h2>
+        <p>Pending Bookings</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-icon name="cash-outline"></ion-icon>
+        <h2>{{ summary.totalRevenue | currency: 'PHP' : '₱'}} </h2>
+        <p> Total Revenue</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="managementSection">
+    <h2>Management</h2>
+    <div class="managementGrid">
+      <div class="managementCard" routerLink="/events">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <h3>Event Management</h3>
+        <p>Add, edit, delete, and view events.</p>
+      </div>
+      <div class="managementCard" routerLink="/bookings">
+        <ion-icon name="ticket-outline"></ion-icon>
+        <h3>Customer Bookings</h3>
+        <p>View and manage customer reservations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="recentSection">
+    <h2>Recent Events</h2>
+
+    <div *ngIf="loading" class="loading">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <div *ngFor="let event of recentEvents" class="eventRow">
+      <div>
+        <h3>{{event.eventName}} </h3>
+        <p>{{event.venue}}</p>
+      </div>
+
+      <span class="eventStatus">
+        {{event.currentStatus}}
+      </span>
+    </div>
+
+    <div *ngIf="!loading && recentEvents.length === 0">
+      <p>No events available.</p>
+    </div>
+  </div>
+</ion-content>

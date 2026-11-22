@@ -1,0 +1,254 @@
+
+.mainHeader {
+    ion-toolbar {
+        --background: #ffffff;
+        --color: #282344;
+        --min-height: 75px;
+    }
+}
+
+.toolbarContent {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #282344;
+    letter-spacing: 1px;
+}
+
+.brandLogo {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7657ff, #a16bff);
+    color: white;
+    font-size: 21px;
+}
+
+.dashboardHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+
+    h1 {
+        color: #282344;
+        font-size: 28px;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    p {
+        color: #89869e;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    ion-button {
+        --background: linear-gradient(135deg, #7657ff, #a16bff);
+        --background-hover: #684ce0;
+        --color: #ffffff;
+        --border-radius: 11px;
+        font-weight: 700;
+        height: 44px;
+    }
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    ion-card {
+        margin: 0;
+        background: #ffffff;
+        border: 1px solid #ebe7ff;
+        border-radius: 18px;
+        box-shadow: 0 5px 20px rgba(50, 35, 100, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(118, 87, 255, 0.12);
+        }
+    }
+
+    ion-card-content {
+        padding: 23px;
+    }
+
+    ion-icon {
+        font-size: 28px;
+        color: #7657ff;
+        background: #f0ecff;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    h2 {
+        color: #282344;
+        font-size: 25px;
+        font-weight: 800;
+        overflow-wrap: anywhere;
+        margin: 17px 0 5px;
+    }
+
+    p {
+        color: #89869e;
+        font-size: 13px;
+        margin: 0;
+    }
+}
+
+.managementSection,
+.recentSection {
+    margin-top: 35px;
+
+    h2 {
+        color: #282344;
+        font-size: 21px;
+        font-weight: 800;
+        margin-bottom: 18px;
+    }
+}
+
+.managementGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.managementCard {
+    background: #ffffff;
+    border: 1px solid #ebe7ff;
+    border-radius: 18px;
+    padding: 25px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(50, 35, 100, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(118, 87, 255, 0.12);
+    }
+
+    ion-icon {
+        color: #7657ff;
+        font-size: 30px;
+        background: #f0ecff;
+        padding: 11px;
+        border-radius: 12px;
+    }
+
+    h3 {
+        color: #282344;
+        font-weight: 700;
+        font-size: 17px;
+        margin-top: 18px;
+    }
+
+    p {
+        color: #89869e;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+.eventRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #ebe7ff;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 5px 18px rgba(118, 87, 255, 0.08);
+    }
+
+    h3 {
+        color: #282344;
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    p {
+        color: #89869e;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+}
+
+.eventStatus {
+    color: #684ce0;
+    background: #eeeaff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 13px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+
+    ion-spinner {
+        color: #7657ff;
+    }
+}
+
+@media (max-width: 700px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboardHeading {
+        h1 {
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .managementGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbarContent {
+        padding: 0 12px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .eventRow {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,86 @@
+<ion-header class="mainHeader">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ eventID ? 'Edit Event' : 'Add New Event' }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="formWrapper">
+    <div class="formHeading">
+      <h1>{{eventID ? 'Update Event' : 'Create Event'}}</h1>
+      <p>
+        Enter the event information below.
+      </p>
+    </div>
+    <div class="eventForm">
+      <div class="formField">
+        <label>Event Name *</label>
+        <ion-input [(ngModel)]="event.eventName" placeholder="Enter event name"></ion-input>
+      </div>
+
+      <div class="formField">
+        <label>Description</label>
+        <ion-textarea [(ngModel)]="event.description" placeholder="Enter event description" rows="4"></ion-textarea>
+      </div>
+
+      <div class="formField">
+        <label>Venue *</label>
+        <ion-input [(ngModel)]="event.venue" placeholder="Enter event location"></ion-input>
+      </div>
+
+      <div class="formField">
+        <label>Event Image URL</label>
+
+        <ion-input [(ngModel)]="event.eventImage" placeholder="Paste image URL"></ion-input>
+      </div>
+
+      <div class="formField">
+        <label>Start Date and Time *</label>
+        <ion-input type="datetime-local" [(ngModel)]="event.startTime"></ion-input>
+      </div>
+      <div class="formField">
+        <label>End Date and Time *</label>
+        <ion-input type="datetime-local" [(ngModel)]="event.endTime"></ion-input>
+      </div>
+
+      <div class="formRow">
+        <div class="formField">
+          <label>Ticket Price *</label>
+          <ion-input type="number" min="0" [(ngModel)]="event.price" placeholder="0.00"></ion-input>
+        </div>
+        <div class="formField">
+          <label>Total Tickets *</label>
+          <ion-input type="number" min="1" [(ngModel)]="event.totalTickets" placeholder="100"></ion-input>
+        </div>
+
+        <div class="formField">
+          <label>Available Tickets</label>
+          <ion-input type="number" min="0" [(ngModel)]="event.availableTickets"></ion-input>
+        </div>
+        </div>
+        <div class="formField">
+          <label>Event Status</label>
+          <ion-select [(ngModel)]="event.currentStatus" interface="popover">
+            <ion-select-option value="Upcoming">Upcoming</ion-select-option>
+            <ion-select-option value="Ongoing">Ongoing</ion-select-option>
+            <ion-select-option value="Ended">Ended</ion-select-option>
+            <ion-select-option value="Cancelled">Cancelled</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="formActions">
+          <ion-button expand="block" fill="outline" color="medium" (click)="cancel()">Cancel</ion-button>
+          <ion-button expand="block" class="saveButton" [disabled]="loading" (click)="saveEvent()">
+            {{loading ? 'Saving...' : eventID ? 'Update Event' : 'Create Event'}}
+          </ion-button>
+        </div>
+      </div>
+    </div>
+</ion-content>

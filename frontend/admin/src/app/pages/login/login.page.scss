@@ -1,0 +1,86 @@
+.loginContent{
+    --background: #ede8ff;
+}
+
+.loginWrapper{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: radial-gradient(circle at top left, #44318c 0, transparent 40%),
+    radial-gradient(circle at bottom right, #342b78 0, transparent 40%), #15172b;
+}
+
+
+.loginCard{
+    width: 100%;
+    max-width: 430px;
+    background: #ffffff;
+    padding: 35px 28px;
+    border-radius: 25px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.25);
+}
+
+.brandMark{
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    background: #eee9ff;
+    color: #7657ff;
+    font-size: 32px;
+}
+
+h1{
+    text-align: center;
+    font-size: 30px;
+    color: #191b31;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.subtitle{
+    color: #9290a5;
+    margin: 9px 0 28px;
+    line-height: 1.5;
+}
+
+.formField{
+    margin-bottom: 20px;
+
+    label{
+        display: block;
+        color: #37334e;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    ion-input{
+        --background: #f8f7fc;
+        --padding-start: 14px;
+        --padding-end: 14px;
+        min-height: 48px;
+        border: 1px solid #e9e6f3;
+        border-radius: 12px;
+    }
+}
+
+.primaryButton{
+    --background: #7657ff;
+    --background-hover: #6545ef;
+    --border-radius: 12px;
+    height: 50px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.footerText{
+    text-align: center;
+    color: #9290a5;
+    font-size: 12px;
+    margin-top: 22px;
+}

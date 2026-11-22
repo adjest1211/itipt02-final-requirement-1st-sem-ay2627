@@ -1,167 +1,332 @@
-.mainHeader{
-    ion-toolbar{
-        --background: white;
+
+ion-content {
+    --background: #f7f5ff;
+}
+
+.mainHeader {
+    ion-toolbar {
+        --background: #ffffff;
         --min-height: 75px;
+        --border-width: 0;
+        box-shadow: 0 3px 15px rgba(76, 45, 145, 0.06);
     }
 }
 
-.toolbarContent{
+.toolbarContent {
     max-width: 1200px;
     margin: auto;
-    padding: 0 20px;
+    padding: 0 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.brand{
+.brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-family: 'Outfit', sans-serif;
     font-size: 20px;
     font-weight: 800;
-    color: #20223a;
+    color: #302052;
     letter-spacing: 1px;
 }
 
-.brandLogo{
-    width: 38px;
-    height: 38px;
+.brandLogo {
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
-    border-radius: 12px;
-    background: #7657ff;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #9875ff, #6842d9);
     color: white;
-    font-size: 21px;
+    font-size: 22px;
+    box-shadow: 0 5px 12px rgba(118, 87, 255, 0.25);
 }
 
-.bookingContainer{
-    max-width: 950px;
+.mainHeader ion-button {
+    --color: #7657df;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: none;
+}
+
+.bookingContainer {
+    max-width: 1000px;
     margin: auto;
-    padding: 25px;
+    padding: 40px 25px;
 }
 
 .bookingHeading {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 
-    .eyebrow{
-        color: #7657ff;
-        font-size: 11px;
+    .eyebrow {
+        display: inline-block;
+        color: #8864e8;
+        background: #eee8ff;
+        padding: 7px 13px;
+        border-radius: 20px;
+        font-size: 10px;
         font-weight: 800;
         letter-spacing: 2px;
     }
 
-    h1{
-        font-size: 32px;
-        margin: 10px 0;
-        color: #20223a;
+    h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        margin: 15px 0 8px;
+        color: #302052;
     }
 
-    p{
-        color: #858ba0;
-    }
-}
-
-.bookingCard{
-    margin: 0 0 18px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(25, 30, 60, .05);
-}
-
-.bookingTop{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.ticketIcon{
-    width: 50px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    background: #eee9ff;
-    color: #7657ff;
-    border-radius: 14px;
-    font-size: 25px;
-}
-
-.bookingTitle{
-    flex: 1;
-
-    h2{
-        font-size: 18px;
-        margin: 0 0 5px;
-        color: #20223a;
-    }
-
-    p{
-        font-size: 12px;
-        color: #9297a8;
+    p {
+        color: #89839c;
+        font-size: 14px;
         margin: 0;
     }
 }
 
-ion-badge{
-    padding: 8px 10px;
+.bookingCard {
+    margin: 0 0 22px;
     border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid #eee9fc;
+    box-shadow: 0 6px 25px rgba(82, 55, 145, 0.06);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(104, 66, 217, 0.12);
+    }
+
+    ion-card-content {
+        padding: 25px;
+    }
 }
 
-.bookingDetails{
+.bookingTop {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ticketIcon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #f0eaff, #e5dcff);
+    color: #7651dc;
+    border-radius: 16px;
+    font-size: 27px;
+}
+
+.bookingTitle {
+    flex: 1;
+    min-width: 0;
+
+    h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 19px;
+        font-weight: 750;
+        margin: 0 0 6px;
+        color: #302052;
+    }
+
+    p {
+        font-size: 12px;
+        color: #a09aaf;
+        margin: 0;
+    }
+}
+
+ion-badge {
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.bookingDetails {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: 25px 0;
-    padding: 20px 0;
-    border-top: 1px solid #eeeef4;
-    border-bottom: 1px solid #eeeef4;
+    gap: 20px;
+    margin: 28px 0;
+    padding: 24px 0;
+    border-top: 1px solid #f0ecf8;
+    border-bottom: 1px solid #f0ecf8;
 
-    small{
+    div {
+        min-width: 0;
+    }
+
+    small {
         display: block;
-        color: #9297a8;
-        margin-bottom: 7px;
+        color: #a19aaf;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
     }
 
-    strong{
-        color: #303348;
-        font-size: 13px;
+    strong {
+        display: block;
+        color: #403653;
+        font-size: 14px;
+        font-weight: 700;
+        overflow-wrap: anywhere;
     }
 
-    .amount{
-        color: #7657ff;
+    .amount {
+        color: #7651dc;
+        font-size: 16px;
     }
 }
 
-.bookingFooter{
-    color: #9297a8;
+.bookingFooter {
+    color: #aaa3b7;
     font-size: 12px;
+
+    small {
+        font-size: 12px;
+    }
 }
 
-.emptyState{
+.emptyState {
     text-align: center;
-    padding: 70px 20px;
-    color: #858ba0;
+    padding: 75px 20px;
+    background: #ffffff;
+    border: 1px solid #eee9fc;
+    border-radius: 22px;
+    box-shadow: 0 6px 25px rgba(82, 55, 145, 0.04);
 
-    ion-icon{
-        font-size: 65px;
-        color: #a996ff;
+    ion-icon {
+        font-size: 70px;
+        color: #a58af5;
+        margin-bottom: 15px;
     }
 
-    h2{
-        color: #20223a;
+    ion-spinner {
+        --color: #7651dc;
+        transform: scale(1.3);
+    }
+
+    h2 {
+        font-family: 'Outfit', sans-serif;
+        color: #302052;
+        font-size: 22px;
+        font-weight: 800;
+        margin: 10px 0;
+    }
+
+    p {
+        color: #9690a5;
+        font-size: 14px;
+        line-height: 1.6;
     }
 }
 
-@media(max-width: 650px){
-    .bookingDetails{
-        grid-template-columns: repeat(2, 1fr);
+.primary-gradient {
+    --background: linear-gradient(135deg, #9875ff, #6842d9);
+    --background-hover: #6842d9;
+    --color: #ffffff;
+    --border-radius: 12px;
+    --box-shadow: 0 6px 15px rgba(118, 81, 220, 0.25);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: none;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .bookingContainer {
+        padding: 30px 18px;
     }
 
-    .bookingTop{
+    .bookingHeading h1 {
+        font-size: 30px;
+    }
+
+    .bookingCard ion-card-content {
+        padding: 20px;
+    }
+
+    .bookingDetails {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbarContent {
+        padding: 0 12px;
+    }
+
+    .brand {
+        font-size: 15px;
+        gap: 8px;
+    }
+
+    .brandLogo {
+        width: 36px;
+        height: 36px;
+        font-size: 19px;
+    }
+
+    .mainHeader ion-button {
+        font-size: 12px;
+        --padding-start: 5px;
+        --padding-end: 5px;
+    }
+
+    .bookingContainer {
+        padding: 25px 13px;
+    }
+
+    .bookingHeading {
+        margin-bottom: 25px;
+
+        h1 {
+            font-size: 27px;
+        }
+    }
+
+    .bookingTop {
+        gap: 11px;
         flex-wrap: wrap;
     }
 
-    .bookingContainer{
-        padding: 15px;
+    .ticketIcon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        font-size: 23px;
+    }
+
+    .bookingTitle {
+        flex: 1;
+
+        h2 {
+            font-size: 16px;
+        }
+    }
+
+    .bookingDetails {
+        gap: 20px 10px;
+        margin: 22px 0;
+        padding: 20px 0;
+
+        strong {
+            font-size: 12px;
+        }
+    }
+
+    .emptyState {
+        padding: 55px 15px;
     }
 }

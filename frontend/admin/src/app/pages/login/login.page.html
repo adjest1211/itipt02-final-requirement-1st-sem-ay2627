@@ -1,0 +1,31 @@
+<ion-content class="loginContent">
+  <div class="loginWrapper">
+    <div class="loginCard">
+    <div class="brandMark">
+      <ion-icon name="shield-checkmark-outline"></ion-icon>
+    </div>
+    <h1>Eventify Admin</h1>
+    <p class="subtitle">
+      Sign in to manage your events and bookings.
+    </p>
+
+    <div class="formField">
+      <label>Admin Username</label>
+      <ion-input [(ngModel)]="username" placeholder="Enter admin username"
+      autocomplete="username"></ion-input>
+    </div>
+
+    <div class="formField">
+      <label>Password</label>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Enter admin password" autocomplete="currentPassword"></ion-input>
+    </div>
+
+    <ion-button expand="block" class="primaryButton" [disabled]="loading" (click)="login()">
+      {{loading ? 'Signing in...' : 'Admin Sign In'}}
+    </ion-button>
+    <p class="footerText">
+      Authorized administrators only.
+    </p>
+  </div>
+  </div>
+</ion-content>

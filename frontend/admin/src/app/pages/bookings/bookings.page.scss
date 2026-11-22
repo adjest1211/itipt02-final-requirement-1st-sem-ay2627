@@ -1,0 +1,227 @@
+.mainHeader {
+    ion-toolbar {
+        --background: #ffffff;
+        --color: #282344;
+        --min-height: 75px;
+    }
+}
+
+.toolbarContent {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #282344;
+    letter-spacing: 1px;
+}
+
+.brandLogo {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7657ff, #a16bff);
+    color: white;
+    font-size: 21px;
+}
+
+.page-heading{
+    margin-bottom: 25px;
+
+    h1{
+        color: #282344;
+        font-size: 27px;
+        font-weight: 800;
+        margin-bottom: 7px;
+    }
+
+    p{
+        color: #89869e;
+        font-size: 14px;
+    }
+}
+
+.bookingStats{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.statCard{
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(50, 35, 100, 0.06);
+
+    ion-icon{
+        font-size: 27px;
+        color: #7657ff;
+    }
+
+    h2{
+        color: #282344;
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    p{
+        color: #89869e;
+        font-size: 13px;
+    }
+}
+
+.filterSection{
+    margin-bottom: 25px;
+    ion-searchbar{
+        --background: white;
+        --border-radius: 12px;
+        --box-shadow: none;
+        padding: 0;
+        border: 1px solid #ebe8f5;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+}
+
+.statusFilters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    button {
+        padding: 9px 17px;
+        border: 1px solid #e9e6f3;
+        background: white;
+        color: #77738e;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    button.active{
+        background: #7657ff;
+        border-color: #7657ff;
+        color: white;
+    }
+}
+
+.bookingList{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bookingCard{
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(50, 35, 100, 0.06);
+}
+
+.bookingHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+
+    h2{
+        color: #282344;
+        font-size: 17px;
+        font-weight: 800;
+        margin: 8px 0 5px;
+    }
+
+    p{
+        color: #89869e;
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+}
+
+.bookingId{
+    color: #7657ff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.bookingInformation{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    padding: 20px 0;
+    margin-top: 15px;
+    border-top: 1px solid #f0eef6;
+    border-bottom: 1px solid #f0eef6;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    span{
+        color: #9995aa;
+        font-size: 12px;
+    }
+
+    strong{
+        color: #37334e;
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+}
+
+.bookingActions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+.loading, .emptyState{
+    text-align: center;
+    padding: 35px;
+    color: #89869e;
+}
+
+.emptyState ion-ion{
+    font-size: 50px;
+    color: #7657ff;
+}
+
+.emptyState h2{
+    color: #282344;
+}
+
+@media(max-width: 750px){
+    .bookingInformation{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 400px){
+    .bookingStats{
+        grid-template-columns: 1fr;
+    }
+    
+    .bookingHeader{
+        flex-direction: column;
+    }
+
+    .bookingCard{
+        padding: 16px;
+    }
+}

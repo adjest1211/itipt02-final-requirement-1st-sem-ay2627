@@ -50,9 +50,11 @@ export class ApiHandler {
         return this.http.post(`${this.api}/bookings`, item);
     }
 
-    myBooking(userID: number): Observable<any> {
-        return this.http.get(`${this.api}/bookings/${userID}`);
-    }
+    myBooking(id: number): Observable<any> {
+    return this.http.get<any>(
+        `${this.api}/customer/bookings/${id}`
+    );
+}
 
     editBooking(bookID: number, item: any): Observable<any> {
         return this.http.put(`${this.api}/bookings/${bookID}`, item);

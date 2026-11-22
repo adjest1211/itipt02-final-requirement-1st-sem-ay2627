@@ -1,0 +1,102 @@
+<ion-header class="mainHeader">
+  <ion-toolbar>
+    <div class="toolbarContent">
+      <div class="brand">
+        <div class="brandLogo">
+          <ion-icon name="arrow-back-outline" (click)="goDashboard()"></ion-icon>
+        </div>
+        <span>Event Management</span>
+      </div>
+      <ion-button fill="clear" slot="end" (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Logout
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="page-heading">
+    <div>
+      <h1>Manage Events</h1>
+      <p>Add, update, and manage your events.</p>
+    </div>
+
+    <ion-button (click)="addEvent()" class="addButton">
+      <ion-icon name="add-outline" slot="start"></ion-icon>
+      Add Event
+    </ion-button>
+  </div>
+  <div class="filterSection">
+    <ion-searchbar placeholder="Search event name or venue..." [value]="searchText" (ionInput)="onSearch($event)"></ion-searchbar>
+
+    <div class="statusFilters">
+      <button *ngFor="let status of statuses" [class.active]="selectedStatus === status"
+      (click)="selectStatus(status)">
+      {{status}}
+    </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading events...
+  </div>
+  <div class="eventsGrid">
+    <div *ngFor="let event of filteredEvents" class="eventCard">
+      <img *ngIf="event.eventImage"
+      [src]="event.eventImage"
+      [alt]="event.eventName">
+
+      <div
+      *ngIf="!event.eventImage"
+      class="imagePlaceholder">
+    <ion-icon name="calendar-outline"></ion-icon>
+  </div>
+  <div class="eventContent">
+    <div class="eventTop">
+      <h2>{{event.eventName}}</h2>
+      <ion-badge [color]="getStatusColor(event.currentStatus)">
+        {{event.currentStatus}}
+      </ion-badge>
+    </div>
+    <p>
+      <ion-icon name="location-outline"></ion-icon>
+      {{event.venue}}
+    </p>
+    <p>
+      <ion-icon name="calendar-outline"></ion-icon>
+      {{event.startTime | date: 'mediumDate'}}
+    </p>
+    <p>
+      <ion-icon name="ticket-outline"></ion-icon>
+      {{event.availableTickets}} tickets available
+    </p>
+
+    <h3>
+      {{event.price | currency: 'PHP' : '₱'}}
+    </h3>
+
+    <div class="eventActions">
+      <ion-button size="small" fill="outline" (click)="editEvent(event)">
+        <ion-icon name="create-outline" slot="start"></ion-icon>
+        Edit
+      </ion-button>
+      <ion-button size="small" color="danger" fill="outline" (click)="deleteEvent(event)">
+        <ion-icon name="trash-outline" slot="start"></ion-icon>
+        Delete
+      </ion-button>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && filteredEvents.length === 0" class="emptyState">
+    <ion-icon name="calendar-outline"></ion-icon>
+    <h2>No Events Found</h2>
+    <p>There are no events matching your search.</p>
+
+    <ion-button (click)="addEvent()">
+      Add Your First Event
+    </ion-button>
+  </div>
+</ion-content>
