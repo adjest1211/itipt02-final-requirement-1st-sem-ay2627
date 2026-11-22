@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <div class="registerBackground">
+    <div class="registerCard">
+      <div class="brandIcon">
+        <ion-icon name="ticket-outline"></ion-icon>
+      </div>
+      <h1>Create Account</h1>
+      <p class="subtitle">
+        Join us and start discovering events.
+      </p>
+
+      <div class="formGroup">
+        <label>Full Name *</label>
+        <ion-input [(ngModel)]="name" placeholder="Your full name" fill="outline"></ion-input>
+      </div>
+
+      <div class="formGroup">
+        <label>Username *</label>
+        <ion-input [(ngModel)]="username" placeholder="Enter your username" fill="outline"></ion-input>
+      </div>
+
+      <div class="formGroup">
+        <label>Email *</label>
+        <ion-input [(ngModel)]="email" type="email" placeholder="you@example.com" fill="outline"></ion-input>
+      </div>
+
+      <div class="formGroup">
+        <label>Contact Number</label>
+        <ion-input [(ngModel)]="contactNumber" type="tel" placeholder="09xxxxxxxxx" fill="outline"></ion-input>
+      </div>
+
+      <div class="formGroup">
+        <label>Password *</label>
+        <ion-input [(ngModel)]="password" type="password" placeholder="Enter your password" fill="outline"></ion-input>
+      </div>
+
+      <ion-button expand="block" class="primary-gradient" [disabled]="loading" (click)="register()">
+        {{ loading ? 'Creating account...' : 'Create Account'}}
+      </ion-button>
+
+      <div class="bottomText">
+        Already have an account?
+        <a routerLink="/login">Sign in</a>
+      </div>
+    </div>
+  </div>
+</ion-content>

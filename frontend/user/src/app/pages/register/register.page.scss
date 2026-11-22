@@ -1,0 +1,75 @@
+ion-content{
+    --background: #15172b;
+}
+
+.registerBackground{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: radial-gradient(circle at top left, #44318c, transparent 40%), #15172b;
+}
+
+.registerCard{
+    width: 100%;
+    max-width: 490px;
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.brandIcon{
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 15px;
+    border-radius: 18px;
+    background: #eee9ff;
+    color: #7657ff;
+    font-size: 30px;
+}
+
+h1{
+    text-align: center;
+    color: #191b31;
+    font-size: 20px;
+}
+
+.subtitle{
+    text-align: center;
+    color: #858ba0;
+    margin-bottom: 25px;
+}
+
+.formGroup{
+    margin-bottom: 15px;
+
+    label{
+        display: block;
+        margin-bottom: 7px;
+        font-weight: 700;
+        color: #34374c;
+    }
+
+    ion-input{
+        --background: #f7f7fb;
+        --border-radius: 11px;
+        --border-color: #e8e8f0;
+        --highlight-color-focused: #7657ff;
+        --padding-start: 12px;
+    }
+}
+
+.bottomText{
+    margin-top: 22px;
+    text-align: center;
+    color: #858ba0;
+
+    a{
+        color: #7657ff;
+        font-weight: 700;
+        text-decoration: none;
+    }
+}

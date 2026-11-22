@@ -85,7 +85,7 @@ def addUser(user: User):
     cursor.execute(
         """
         SELECT userID FROM user
-        WHERE username = %s, OR email = %s
+        WHERE username = %s OR email = %s
     """,
     (user.username, user.email)
     )

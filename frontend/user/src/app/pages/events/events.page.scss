@@ -1,0 +1,345 @@
+.mainHeader{
+    ion-toolbar{
+        --background: white;
+        --min-height: 75px;
+    }
+}
+
+.toolbarContent{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #20223a;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.brandLogo{
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #7657ff;
+    color: white;
+    font-size: 21px;
+}
+
+.desktopMenu, .accountMenu{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.welcomeText{
+    color: #555b70;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.topSection{
+    min-height: 370px;
+    padding: 60px max(calc((100% - 1160px)/2), 25px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 85% 20%, #7657ff 0, transparent 30%),
+    linear-gradient(120deg, #17182f, #292052);
+    color: white;
+}
+
+.topContent{
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+}
+
+.topLabel{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #c8bbff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.topContent h1{
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1.08;
+    margin: 20px 0;
+    color: white;
+
+    span{
+        color: #a996ff;
+    }
+}
+
+.topContent p {
+    max-width: 480px;
+    line-height: 1.8;
+    color: #c6c5d8;
+}
+
+.topButton{
+    --background: #7657ff;
+    --border-radius: 12px;
+    height: 50px;
+    margin-top: 15px;
+}
+
+.topDecoration{
+    position: absolute;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.topCircle{
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(255,255,255,.035),
+    0 0 0 70px rgba(255,255,255,.025);
+}
+
+.floatingTicket{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 130px;
+    color: #b9a9ff;
+    transform: rotate(-15deg);
+}
+
+.eventHeading{
+    margin: 40px 0 20px;
+
+    .eyebrow{
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #7657ff;
+    }
+
+    h2{
+        font-size: 29px;
+        margin: 7px 0;
+    }
+
+    p{
+        color: #858ba0;
+        margin: 0;
+    }
+}
+
+.eventSearch{
+    --background: white;
+    --border-radius: 13px;
+    --box-shadow: 0 3px 15px rgba(25, 30, 60, .04);
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.categoryList{
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 5px 0 20px;
+    
+    button{
+        white-space: nowrap;
+        border: 1px solid #e8e8f0;
+        background: white;
+        color: #70758a;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-weight: 700;
+    }
+
+    button.active{
+        background: #7657ff;
+        border-color: #7657ff;
+        color: white;
+    }
+}
+
+.eventGrid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.eventCard{
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 22px rgba(25, 30, 60, .055);
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+
+    &:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(25, 30, 60, .1);
+    }
+}
+
+.eventImage{
+    height: 190px;
+    position: relative;
+    background: #e9e5ff;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    ion-badge{
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        padding: 8px 11px;
+        border-radius: 30px;
+    }
+}
+
+.imagePlaceholder{
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #7657ff;
+    font-size: 60px;
+}
+
+.eventDate{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7657ff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eventCard h3{
+    color: #20223a;
+    font-size: 19px;
+    margin: 12px 0;
+}
+
+.venue{
+    color: #858ba0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.eventFooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f0f0f5;
+    padding-top: 15px;
+    margin-top: 18px;
+
+    strong{
+        display: block;
+        font-size: 20px;
+        color: #7657ff;
+    }
+}
+
+.priceLabel{
+    font-size: 11px;
+    color: #9297a8;
+}
+
+.emptyState, loadingState{
+    text-align: center;
+    padding: 60px 20px;
+    color: #858ba0;
+}
+
+.emptyState ion-icon{
+    font-size: 50px;
+    color: #a996ff;
+}
+
+footer{
+    background: #17182f;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    margin-top: 50px;
+
+    h3{
+        color: #a996ff;
+    }
+
+    p, small{
+        color: #aaaac0;
+    }
+}
+
+@media(max-width: 850px){
+    .eventGrid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .topDecoration{
+        right: -90px;
+        opacity: .3;
+    }
+}
+
+@media (max-width: 600px){
+    .desktopMenu, .welcomeText{
+        display: none;
+    }
+
+    .toolbarContent{
+        padding: 0 10px;
+    }
+
+    .topSection{
+        min-height: 330px;
+        padding: 45px 22px;
+    }
+
+    .topContent h1{
+        font-size: 40px;
+    }
+
+    .topDecoration{
+        display: none;
+    }
+
+    .eventGrid{
+        grid-template-columns: 1fr;
+    }
+
+    .eventImage{
+        height: 210px;
+    }
+
+    .page-container{
+        padding: 16px;
+    }
+}

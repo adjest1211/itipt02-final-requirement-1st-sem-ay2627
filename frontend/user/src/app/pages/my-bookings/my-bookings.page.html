@@ -1,0 +1,89 @@
+<ion-header class="mainHeader">
+  <ion-toolbar>
+    <div class="toolbarContent">
+      <div class="brand">
+        <div class="brandLogo">
+          <ion-icon name="book-outline"></ion-icon>
+        </div>
+        <span>MY BOOKINGS</span>
+      </div>
+      <ion-button fill="clear" slot="end" routerLink="/events">Browse Events</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="bookingContainer">
+    <div class="bookingHeading">
+      <span class="eyebrow">YOUR ACTIVITY</span>
+      <h1>My Bookings</h1>
+      <p>Track your reservations and booking status.</p>
+    </div>
+
+    <div class="bookingList" *ngIf="bookings.length > 0">
+      <ion-card *ngFor="let booking of bookings" class="bookingCard">
+        <ion-card-content>
+          <div class="bookingTop">
+            <div class="ticketIcon">
+              <ion-icon name="ticket-outline"></ion-icon>
+            </div>
+
+            <div class="bookingTitle">
+              <h2>{{ booking.eventName}} </h2>
+              <p>Booking #{{booking.bookID}}</p>
+            </div>
+
+            <ion-badge [color]="getStatusColor(booking.bookStatus)">
+              {{booking.bookStatus}}
+            </ion-badge>
+          </div>
+
+          <div class="bookingDetails">
+            <div>
+              <small>Venue</small>
+              <strong>{{booking.venu}}</strong>
+            </div>
+
+            <div>
+              <small>Event Date</small>
+              <strong>{{ booking.startTime | date:'mediumDate' }}</strong>
+            </div>
+
+            <div>
+              <small>Tickets</small>
+              <strong>{{booking.quantity }}</strong>
+            </div>
+
+            <div>
+              <small>Total Amount</small>
+              <strong class="amount">
+                ₱{{booking.totalAmount | number:'1.2-2'}}
+              </strong>
+            </div>
+          </div>
+
+          <div class="bookingFooter">
+            <small>
+              Booked on {{ booking.bookedAt | date: 'medium'}}
+            </small>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="emptyState" *ngIf="!loading && bookings.length === 0">
+      <ion-icon name="ticket-outline"></ion-icon>
+      <h2>No bookings yet</h2>
+      <p>your tickets will appear here after you book an event.</p>
+      <ion-button class="primary-gradient" routerLink="/events">Explore Events</ion-button>
+    </div>
+
+    <div *ngIf="loading" class="emptyState">
+      Loading your bookings....
+    </div>
+  </div>
+</ion-content>

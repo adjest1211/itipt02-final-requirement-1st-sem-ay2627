@@ -1,0 +1,167 @@
+.mainHeader{
+    ion-toolbar{
+        --background: white;
+        --min-height: 75px;
+    }
+}
+
+.toolbarContent{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #20223a;
+    letter-spacing: 1px;
+}
+
+.brandLogo{
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #7657ff;
+    color: white;
+    font-size: 21px;
+}
+
+.bookingContainer{
+    max-width: 950px;
+    margin: auto;
+    padding: 25px;
+}
+
+.bookingHeading {
+    margin-bottom: 30px;
+
+    .eyebrow{
+        color: #7657ff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+
+    h1{
+        font-size: 32px;
+        margin: 10px 0;
+        color: #20223a;
+    }
+
+    p{
+        color: #858ba0;
+    }
+}
+
+.bookingCard{
+    margin: 0 0 18px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(25, 30, 60, .05);
+}
+
+.bookingTop{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ticketIcon{
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background: #eee9ff;
+    color: #7657ff;
+    border-radius: 14px;
+    font-size: 25px;
+}
+
+.bookingTitle{
+    flex: 1;
+
+    h2{
+        font-size: 18px;
+        margin: 0 0 5px;
+        color: #20223a;
+    }
+
+    p{
+        font-size: 12px;
+        color: #9297a8;
+        margin: 0;
+    }
+}
+
+ion-badge{
+    padding: 8px 10px;
+    border-radius: 20px;
+}
+
+.bookingDetails{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+    padding: 20px 0;
+    border-top: 1px solid #eeeef4;
+    border-bottom: 1px solid #eeeef4;
+
+    small{
+        display: block;
+        color: #9297a8;
+        margin-bottom: 7px;
+    }
+
+    strong{
+        color: #303348;
+        font-size: 13px;
+    }
+
+    .amount{
+        color: #7657ff;
+    }
+}
+
+.bookingFooter{
+    color: #9297a8;
+    font-size: 12px;
+}
+
+.emptyState{
+    text-align: center;
+    padding: 70px 20px;
+    color: #858ba0;
+
+    ion-icon{
+        font-size: 65px;
+        color: #a996ff;
+    }
+
+    h2{
+        color: #20223a;
+    }
+}
+
+@media(max-width: 650px){
+    .bookingDetails{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bookingTop{
+        flex-wrap: wrap;
+    }
+
+    .bookingContainer{
+        padding: 15px;
+    }
+}
