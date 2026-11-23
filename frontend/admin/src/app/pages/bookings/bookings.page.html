@@ -56,12 +56,13 @@
     </ion-searchbar>
 
     <div class="statusFilters">
-      <button
+      <ion-button
         *ngFor="let status of statuses"
+
         [class.active]="selectedStatus === status"
         (click)="selectStatus(status)">
         {{status}}
-      </button>
+      </ion-button>
     </div>
 
   </div>
@@ -81,7 +82,7 @@
             Booking #{{booking.bookID}}
           </span>
 
-          <h2>{{booking.name}}</h2>
+          <h2>{{booking.firstName}} {{booking.lastName}}</h2>
           <p>{{booking.email}}</p>
         </div>
 
@@ -113,7 +114,7 @@
         <div>
           <span>Booking Date</span>
           <strong>
-            {{booking.bookingDate | date:'mediumDate'}}
+            {{booking.bookedAt | date:'mediumDate'}}
           </strong>
         </div>
 

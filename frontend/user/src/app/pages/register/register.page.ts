@@ -20,7 +20,8 @@ export class RegisterPage implements OnInit {
   private toast = inject(ToastController);
   private cdr = inject(ChangeDetectorRef);
 
-  name = "";
+  firstName = "";
+  lastName = "";
   username = "";
   email = "";
   password = "";
@@ -33,7 +34,8 @@ export class RegisterPage implements OnInit {
 
   async register() {
     if(
-      !this.name.trim() ||
+      !this.firstName.trim() ||
+      !this.lastName.trim() ||
       !this.username.trim() ||
       !this.email.trim() ||
       !this.password
@@ -46,7 +48,8 @@ export class RegisterPage implements OnInit {
     this.cdr.detectChanges();
 
     this.apiHandler.userRegister({
-      name: this.name,
+      firstName: this.firstName,
+      lastName: this.lastName,
       username: this.username,
       password: this.password,
       email: this.email,

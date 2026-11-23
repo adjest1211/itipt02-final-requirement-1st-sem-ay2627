@@ -26,7 +26,8 @@ class Admin(BaseModel):
     password: str
 
 class User(BaseModel):
-    name: str
+    firstName: str
+    lastName: str
     username: str
     password: str
     email: str
@@ -37,7 +38,8 @@ class UserLogin(BaseModel):
     password: str
 
 class UserUpdate(BaseModel):
-    name: str
+    firstName: str
+    lastName: str
     username: str
     email: str
     contactNumber: str
@@ -99,11 +101,12 @@ def addUser(user: User):
 
     cursor.execute(
         """
-        INSERT INTO user(name, username, password, email, contactNumber)
-        VALUES (%s, %s, %s, %s, %s)
+        INSERT INTO user(firstName, lastName, username, password, email, contactNumber)
+        VALUES (%s,%s, %s, %s, %s, %s)
     """,
     (
-        user.name,
+        user.firstName,
+        user.lastName,
         user.username,
         user.password,
         user.email,
@@ -130,7 +133,7 @@ def userLogin(user: UserLogin):
 
     cursor.execute(
         """
-        SELECT userID, name, username, email, contactNumber 
+        SELECT userID, firstName,lastName, username, email, contactNumber 
         FROM user
         WHERE username = %s AND password = %s
     """,
@@ -171,7 +174,7 @@ def viewUser():
 
     cursor.execute(
         """
-        SELECT userID, name, username, email, contactNumber, createdAt
+        SELECT userID, firstName,lastName, username, email, contactNumber, createdAt
         FROM user ORDER BY userID DESC
     """
     )
@@ -190,7 +193,7 @@ def view1user(id: int):
 
     cursor.execute(
         """
-        SELECT userID, name, username, email, contactNumber, createdAt
+        SELECT userID, firstName,lastName, username, email, contactNumber, createdAt
         FROM user WHERE userID = %s
     """,
     (id,)
@@ -214,14 +217,16 @@ def updateUser(id: int, user: UserUpdate):
     cursor.execute(
         """
         UPDATE user SET
-        name = %s,
+        firstName = %s,
+        lastName = %s,
         username = %s,
         email = %s,
         contactNumber = %s,
         WHERE userID = %s
     """,
     (
-        user.name,
+        user.firstName,
+        user.lastName,
         user.username,
         user.email,
         user.contactNumber,
@@ -582,7 +587,7 @@ def get_booking(id: int):
 
     cursor.execute(
         """
-        SELECT b.*, u.name, u.username, u.email, e.eventName, e.venue, e.startTime, e.endTime
+        SELECT b.*, u.firstName,u.lastName, u.username, u.email, e.eventName, e.venue, e.startTime, e.endTime
         FROM bookings b
         INNER JOIN  user u 
         ON b.userID = u.userID
@@ -702,7 +707,7 @@ def getBooking():
     cursor.execute(
         """
         SELECT b.bookID, b.userID, b.eventID, b.quantity, b.totalAmount, b.bookStatus, b.bookedAt,
-        u.name, u.username, u.email, u.contactNumber,
+        u.firstName,u.lastName, u.username, u.email, u.contactNumber,
         e.eventName, e.venue, e.startTime, e.endTime
         FROM bookings b
         INNER JOIN user u

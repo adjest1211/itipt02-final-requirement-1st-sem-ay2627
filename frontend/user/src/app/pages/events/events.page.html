@@ -21,7 +21,7 @@
       <div class="accountMenu">
         <ng-container *ngIf="user; else guest">
           <span class="welcomeText">
-            Hi, {{ user.name }}
+            Hi, {{ user.firstName }}
           </span>
 
           <ion-button fill="clear" (click)="logout()">

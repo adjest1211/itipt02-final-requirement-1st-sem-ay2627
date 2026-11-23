@@ -101,20 +101,20 @@
     flex-wrap: wrap;
     gap: 8px;
 
-    button {
-        padding: 9px 17px;
-        border: 1px solid #e9e6f3;
-        background: white;
-        color: #77738e;
-        border-radius: 30px;
-        font-size: 12px;
-        font-weight: 700;
+    ion-button {
+        --padding: 9px 17px;
+        --border: 1px solid #e9e6f3;
+        --background: white;
+        --color: #77738e;
+        --border-radius: 30px;
+        --font-size: 12px;
+        --font-weight: 700;
     }
 
-    button.active{
-        background: #7657ff;
-        border-color: #7657ff;
-        color: white;
+    ion-button.active{
+        --background: #7657ff;
+        --border-color: #7657ff;
+        --color: white;
     }
 }
 

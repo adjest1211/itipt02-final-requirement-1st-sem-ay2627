@@ -9,10 +9,17 @@
         Join us and start discovering events.
       </p>
 
+      <div class="nameContainer">
+        <div class="formGroup">
+          <label>First Name *</label>
+          <ion-input [(ngModel)]="firstName" placeholder="Your first name" fill="outline"></ion-input>
+        </div>
       <div class="formGroup">
-        <label>Full Name *</label>
-        <ion-input [(ngModel)]="name" placeholder="Your full name" fill="outline"></ion-input>
+          <label>Last Name *</label>
+          <ion-input [(ngModel)]="lastName" placeholder="Your last name" fill="outline"></ion-input>
+          </div>
       </div>
+      
 
       <div class="formGroup">
         <label>Username *</label>
