@@ -21,8 +21,8 @@
         <ion-icon name="ticket-outline"></ion-icon>
       </div>
 
-      <ion-badge [color]="event.currentStatus === 'Upcoming' ? 'success' :
-                          event.currentStatus === 'Ongoing' ? 'tertiary' : 'medium'">
+      <ion-badge [color]="event.currentStatus === 'Upcoming' ? 'tertiary' :
+                          event.currentStatus === 'Ongoing' ? 'success' : 'medium'">
         {{event.currentStatus}}
       </ion-badge>
     </div>

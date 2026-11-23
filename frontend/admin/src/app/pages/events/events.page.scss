@@ -83,20 +83,20 @@
     flex-wrap: wrap;
     gap: 8px;
 
-    button{
-        padding: 9px 17px;
-        border: 1px solid #e9e6f3;
-        background: white;
-        color: #77738e;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 700;
+    ion-button{
+        --padding: 9px 17px;
+        --border: 1px solid #e9e6f3;
+        --background: white;
+        --color: #77738e;
+        --border-radius: 20px;
+        --font-size: 12px;
+        --font-weight: 700;
     }
 
-    button.active{
-        background: #7657ff;
-        color: white;
-        border-color: #7657ff;
+    ion-button.active{
+        --background: #7657ff;
+        --color: white;
+        --border-color: #7657ff;
     }
 }
 
@@ -107,16 +107,35 @@
 }
 
 .eventCard{
-    background: white;
-    border-radius: 17px;
+    position: relative;
+    margin: 0;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(50, 35, 100, 0.06);
-    
+    background: white;
+    box-shadow: 0 5px 22px rgba(25, 30, 60, .055);
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+
+    &:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(25, 30, 60, .1);
+    }
+
+    >img{
+        height: 100%;
+    }
     > img, 
     > .imagePlaceholder{
         width: 100%;
-        height: 180px;
+        height: 280px;
         object-fit: cover;
+    }
+    ion-badge{
+        position: absolute;
+        top: 13px;
+        right: 13px;
+        padding: 8px 11px;
+        border-radius: 30px;
     }
 }
 

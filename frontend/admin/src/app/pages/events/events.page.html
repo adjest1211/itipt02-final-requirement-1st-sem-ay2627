@@ -31,10 +31,10 @@
     <ion-searchbar placeholder="Search event name or venue..." [value]="searchText" (ionInput)="onSearch($event)"></ion-searchbar>
 
     <div class="statusFilters">
-      <button *ngFor="let status of statuses" [class.active]="selectedStatus === status"
+      <ion-button *ngFor="let status of statuses" [class.active]="selectedStatus === status"
       (click)="selectStatus(status)">
       {{status}}
-    </button>
+    </ion-button>
     </div>
   </div>
 

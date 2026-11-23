@@ -5,7 +5,7 @@ import { IonContent, IonHeader,  IonToolbar, IonButton, IonIcon, IonSearchbar, I
 import { ApiHandler } from '../../api-handler';
 import { addIcons } from 'ionicons';
 import {  Router } from '@angular/router';
-import { addOutline, arrowBackOutline, calendarOutline, createOutline, locationOutline, logOutOutline, ticket, ticketOutline } from 'ionicons/icons';
+import { addOutline, arrowBackOutline, calendarOutline, createOutline, locationOutline, logOutOutline, ticket, ticketOutline, trashOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-events',
@@ -37,7 +37,7 @@ export class EventsPage implements OnInit {
 
 
   constructor() {
-    addIcons({ticketOutline, createOutline, ticket, locationOutline, logOutOutline, addOutline, calendarOutline, arrowBackOutline});
+    addIcons({trashOutline ,ticketOutline, createOutline, ticket, locationOutline, logOutOutline, addOutline, calendarOutline, arrowBackOutline});
   }
 
   ngOnInit(): void {
@@ -139,7 +139,7 @@ export class EventsPage implements OnInit {
   getStatusColor(status: string): string{
     switch(status){
       case 'Upcoming':
-        return 'primary';
+        return 'tertiary';
       case 'Ongoing':
         return 'success';
       case 'Ended':
