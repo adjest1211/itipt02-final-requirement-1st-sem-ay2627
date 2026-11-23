@@ -1,24 +1,9 @@
-
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { IonSpinner } from '@ionic/angular';
-
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonBadge,
-  IonIcon,
-  IonRefresher,
-  IonRefresherContent
-} from '@ionic/angular';
-
+import { IonContent, IonHeader, IonToolbar, IonButton, IonCard, IonCardContent, IonBadge, IonIcon, IonRefresher, IonRefresherContent} from '@ionic/angular';
 import { ApiHandler } from '../../api-handler';
 import { addIcons } from 'ionicons';
 import { bookOutline, ticketOutline } from 'ionicons/icons';
@@ -27,22 +12,7 @@ import { bookOutline, ticketOutline } from 'ionicons/icons';
   selector: 'app-my-bookings',
   templateUrl: './my-bookings.page.html',
   styleUrls: ['./my-bookings.page.scss'],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink,
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonButton,
-    IonCard,
-    IonCardContent,
-    IonBadge,
-    IonIcon,
-    IonSpinner,
-    IonRefresher,
-    IonRefresherContent
+  imports: [ CommonModule, FormsModule, RouterLink, IonContent, IonHeader, IonToolbar, IonButton, IonCard, IonCardContent, IonBadge, IonIcon, IonSpinner, IonRefresher, IonRefresherContent
   ],
 })
 export class MyBookingsPage implements OnInit {

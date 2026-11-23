@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonCard, IonCardContent, IonSpinner} from '@ionic/angular';
+import { IonContent, IonHeader,  IonToolbar, IonButton, IonIcon, IonCard, IonCardContent, IonSpinner} from '@ionic/angular';
 import { ApiHandler } from '../../api-handler';
 import { addIcons } from 'ionicons';
 import { Router, RouterLink } from '@angular/router';
@@ -12,7 +12,7 @@ import { calendarOutline, cashOutline, logOutOutline, peopleOutline, ticket, tic
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
   
-  imports: [RouterLink, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonCard, IonCardContent,  IonSpinner],
+  imports: [RouterLink, IonContent, IonHeader, IonToolbar, CommonModule, FormsModule, IonButton, IonIcon, IonCard, IonCardContent,  IonSpinner],
 })
 export class DashboardPage implements OnInit {
   private apiHandler = inject(ApiHandler);

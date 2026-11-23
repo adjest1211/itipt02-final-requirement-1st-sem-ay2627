@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader,  IonToolbar, IonButton, IonIcon, IonSearchbar, IonBadge, AlertController, ToastController } from '@ionic/angular';
 import { ApiHandler } from '../../api-handler';
 import { addIcons } from 'ionicons';
-import { RouterLink, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { addOutline, arrowBackOutline, calendarOutline, createOutline, locationOutline, logOutOutline, ticket, ticketOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.page.html',
   styleUrls: ['./events.page.scss'],
-  imports: [RouterLink, IonContent, IonHeader,  IonToolbar, CommonModule, FormsModule,IonButton, IonIcon, IonSearchbar, IonBadge],
+  imports: [ IonContent, IonHeader,  IonToolbar, CommonModule, FormsModule,IonButton, IonIcon, IonSearchbar, IonBadge],
 })
 export class EventsPage implements OnInit {
   private apiHandler = inject(ApiHandler);
